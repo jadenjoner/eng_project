@@ -1,0 +1,653 @@
+
+// !!! IMPORTANT this file is a link to the original default.scss
+
+// Default scss
+//@import 'CSS-defaults.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  //scrollbar-color: $white4 transparent;
+  //scrollbar-width: thin;
+}
+
+html {}
+
+body {
+  // Default System Fonts
+  //font-family: Ubuntu, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: $white3;
+  background: $black1;
+}
+
+::selection {
+  background: $theme2;
+  color: $white0;
+}
+
+a:not(.fancy) {
+  text-decoration: none;
+  color: $theme2-bright;
+  transition: $transition-time;
+  font-weight: bold;
+  outline: none !important;
+
+  &:hover {
+    text-decoration: underline;
+    color: $theme2;
+    cursor: pointer;
+  }
+
+  &:active {
+    transition: 0s;
+    text-decoration: underline;
+    color: $theme2-dark;
+  }
+
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+a.fancy {
+  outline: none !important;
+  position: relative;
+  text-decoration: none;
+  color: $white2;
+  transition: $transition-time;
+  user-select: none;
+  letter-spacing: 0.03rem;
+
+  &:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: -3px;
+    content: "";
+    display: block;
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    background: $theme2;
+    transition: width 0.2s ease 0s, left 0.2s ease 0s;
+    width: 0;
+    border-radius: 30px;
+  }
+
+  &:hover {
+    color: $white0;
+    cursor: pointer;
+  }
+
+  &:hover:after {
+    width: 100%;
+    left: 0;
+  }
+}
+
+div.clear {
+  clear: both;
+}
+
+br {
+  user-select: contain;
+}
+
+.form-label{
+  display: block;
+  color: $white4;
+  padding-top: 16px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: $white1;
+  font-weight: 500;
+  margin: 8px 0;
+}
+
+.h-border {
+  border-left: $border-width solid $theme;
+  padding-left: 8px;
+}
+
+h1 {
+  font-size: 2.75rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
+h3 {
+  font-size: 1.7rem;
+  font-weight: normal;
+}
+
+h4 {
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+
+hr {
+  height: $border-width*2;
+  border: none;
+  background: mix($white2, $black3);
+  border-radius: $border-radius1;
+  margin: 8px 0;
+}
+
+input[type="button"].b2,
+input[type="submit"].b2,
+button.b2,
+input[type="reset"].b2,
+label.b2 {
+  user-select: none;
+  font-family: inherit;
+  outline: none !important;
+  background: $theme2;
+  border: $border-width*1.5 solid mix($theme2, $black4, 10%);
+  padding: 10px 20px;
+  border-radius: $border-radius2;
+  color: $white0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: inherit;
+  margin: auto 0;
+  transition: $transition-time;
+
+  &:hover {
+    background: $theme2-bright;
+    border-color: mix($theme2-bright, $black4, 10%);
+    cursor: pointer;
+  }
+
+  &:active {
+    transition: 0s;
+    background: $theme2-dark;
+    border-color: mix($theme2, $black4, 20%);
+  }
+}
+
+input[type="button"].b1,
+input[type="submit"].b1,
+button.b1,
+input[type="reset"].b1,
+label.b1 {
+  user-select: none;
+  font-family: inherit;
+  outline: none !important;
+  background: $black1;
+  border: $border-width solid $black0;
+  padding: 8px 16px;
+  border-radius: $border-radius1;
+  color: mix($white4, $black1, 90%);
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: inherit;
+  margin: auto 0;
+  transition: $transition-time;
+
+  &:hover {
+    color: $white4;
+    background: $black2;
+    border-color: $theme2;
+    cursor: pointer;
+  }
+
+  &:active {
+    transition: 0s;
+    border-color: $theme2;
+    background: $theme2;
+    color: $white0;
+  }
+
+  &:focus {
+    border-color: $theme2;
+  }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="number"], input[type=time],
+.color-wrap,
+select {
+  transition: border-color $transition-time/2;
+  appearance: none;
+  font-size: inherit;
+  font-family: inherit;
+  outline: none !important;
+  background: $black2;
+  border: $border-width solid $black1;
+  padding: 8px 16px;
+  color: $white3;
+  border-radius: $border-radius1;
+
+  &:focus {
+    border-color: $theme2;
+    background: $black1;
+    color: $white2;
+  }
+}
+
+.color-wrap {
+  padding: 0;
+  display: inline-block;
+  user-select: none;
+
+  &:focus-within {
+    border-color: $theme2;
+    background: $black1;
+    color: $white2;
+  }
+
+  input[type="text"] {
+    user-select: text;
+    position: relative;
+    top: -4px;
+    width: 211px;
+  }
+}
+
+.reset-input {
+  border: none !important;
+  background-color: inherit !important;
+  padding: none !important;
+}
+
+input[type="color"] {
+  outline: none !important;
+  background: $black2;
+  border: none;
+  padding: 0;
+  height: 40px;
+  margin: -4px 0;
+  width: 64px;
+  color: $white3;
+  position: relative;
+  top: 5px;
+  left: 25px;
+  clip-path: circle(15px at 18px 20px);
+  transition: $transition-time;
+
+  &:hover {
+    filter: invert(20%);
+    cursor: pointer;
+  }
+
+  &:focus {
+    filter: none;
+  }
+}
+
+select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='lightgrey' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 5px;
+  width: 170px;
+  color: $white3;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+// Checkboxes and radios
+
+.radio {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  user-select: none;
+  margin: 16px 0;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    transition: $transition-time/2;
+    position: absolute;
+    top: calc(-2px - 8px + 1rem/2);
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background: $black2;
+    border: $border-width solid $black1;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    .checkmark {
+      transition: 0;
+      border-color: $theme2;
+    }
+  }
+
+  input:checked ~ .checkmark {
+    transition: 0;
+    background-color: $black2;
+    border: 8px solid $theme2;
+  }
+
+  &:focus-within {
+    .checkmark {
+      transition: 0;
+      border-color: $theme2;
+    }
+  }
+}
+
+.checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  user-select: none;
+  margin: 16px 0;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    transition: $transition-time/2;
+    position: absolute;
+    top: calc(-2px - 8px + 1rem/2);
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background: $black2;
+    border: $border-width solid $black1;
+    border-radius: 4px;
+  }
+
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: -$border-width + 9px;
+    top: -$border-width + 5px;
+    width: 5px;
+    height: 10px;
+    border: solid $black2;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+
+  &:hover {
+    .checkmark {
+      transition: 0;
+      border-color: $theme2;
+    }
+  }
+
+  &:focus-within {
+    .checkmark {
+      transition: 0;
+      border-color: $theme2;
+    }
+  }
+
+  input:checked ~ .checkmark {
+    background: $theme2;
+    border-color: $theme2;
+  }
+}
+
+.file-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+
+  .button-wrap {
+    position: relative;
+
+    input[type="file"] {
+      position: absolute;
+      z-index: -1000;
+      top: 10px;
+      left: 8px;
+      font-size: 1rem;
+      color: #b8b8b8;
+    }
+
+    .b1,
+    .b2 {
+      display: inline-block;
+    }
+  }
+}
+
+textarea {
+  outline: none !important;
+  background: $black2;
+  border: $border-width solid $black1;
+  border-radius: $border-radius2;
+  padding: 20px;
+  width: 100%;
+  color: $white2;
+  resize: none;
+  font-size: .9rem;
+  height: 200px;
+
+  &:focus-within {
+    border-color: $theme2;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 28px;
+  user-select: none;
+  margin: 16px 0;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    outline: none !important;
+
+    &:checked + .slider {
+      background-color: $theme2;
+    }
+
+    &:checked + .slider:before {
+      transform: translateX(26px);
+    }
+  }
+
+  input:checked ~ .slider {
+    border: $border-width solid $theme2-dark;
+  }
+
+  input:focus ~ .slider {
+    // box-shadow: 0 0 0 $border-width $theme2-bright;
+  }
+
+  &:focus-within {
+    .slider {
+      // box-shadow: 0 0 0 $border-width $theme2-bright;
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $black2;
+    border: $border-width solid $black1;
+    transition: $transition-time;
+    border-radius: 34px;
+
+    &:before {
+      transition: $transition-time;
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: -$border-width + 5px;
+      bottom: 4px - $border-width;
+      background-color: $white0;
+      border-radius: 50%;
+    }
+  }
+}
+
+.switch-label{
+  position: relative;
+  top: calc(10px - 1rem/2);
+  left: 10px;
+  user-select: none;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+
+
+
+input[type="range"]
+{
+    width: 100%;
+    margin: 0px;
+    padding: 8px 0px;
+    outline: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    outline: none !important;
+    transition: $transition-time;
+
+    $thumb-color: $white0;
+    $thumb-focus: $white4;
+    $track-color: mix($white1, $black4, 7%);
+    $track-focus: mix($white1, $black4, 9%);
+
+    &::-webkit-slider-runnable-track
+    {
+      cursor: pointer;
+      width: 100%;
+      height: $border-width*2;
+      background: $track-color;
+      border-radius: 10px;
+      transition: $transition-time;
+    }
+    &::-moz-range-track
+    {
+      cursor: pointer;
+      width: 100%;
+      height: $border-width*2;
+      background: $track-color;
+      border-radius: 10px;
+      transition: $transition-time;
+    }
+
+
+    &::-webkit-slider-thumb
+    {
+      background: $thumb-color;
+      margin-top: -7px;
+      appearance: none;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      border: none;
+      transition: $transition-time;
+      cursor: pointer;
+    }
+    &::-moz-range-thumb
+    {
+      background: $thumb-color;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      border: none;
+      transition: $transition-time;
+      cursor: pointer;
+    }
+
+    &:active
+    {
+      &::-moz-range-track{
+        background:$track-focus;
+      }
+      &::-moz-range-thumb{
+        background: $thumb-focus;
+      }
+      &::-webkit-slider-runnable-track
+      {
+        background: $track-focus;
+      }
+      &::-webkit-slider-thumb{
+        background: $thumb-focus;
+      }
+    }
+}
+
+
+ul, ol{
+  margin-left: 24px;
+}
+
+code{
+  display: inline-block;
+  background: $black1;
+  padding: 8px 16px;
+  font-size: .9rem;
+  color: mix($white1, $black1, 70%);
+  border-radius: $border-radius1;
+  border: $border-width/2 solid $black0;
+}
+
+.prompter{
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba($black1, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  section{
+    padding: 40px;
+    overflow-y: auto;
+    text-align: left;
+    width: 500px;
+    //height: 550px;
+    max-width: 90vw;
+    max-height: 90vh;
+    background: $black4;
+    border-radius: $border-radius3;
+    border: $border-width solid $theme;
+  }
+}
